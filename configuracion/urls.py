@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from inventario.views import InventarioListView, inventarioDetailView, CategoriaListView
+from inventario.views import InventarioListView, InventarioDetailView, CategoriaListView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
@@ -24,7 +24,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/inventario/', InventarioListView.as_view(), name="inventario"),
-    path('api/inventario/<int:pk>/', inventarioDetailView.as_view(), name="inventario-detalle"),
+    path('api/inventario/<int:pk>/', InventarioDetailView.as_view(), name="inventario-detalle"),
     path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh')
 ]
+
