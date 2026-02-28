@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from inventario.views import InventarioListView, InventarioDetailView, CategoriaListView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-
+from rest_framework.routers import DefaultRouter
 
 
 urlpatterns = [
@@ -28,4 +28,5 @@ urlpatterns = [
     path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh')
 ]
+
 
